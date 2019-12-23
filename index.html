@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no, email=no, address=no" />  
+		<title>zzencode</title>
+		<script src="main.js" type="text/javascript"></script>
+		<style>
+			a{color:#FBFDB0;font-family:verdana;cursor:pointer;text-decoration:none;font-weight:bold;}
+			.c-title{font-family:'tahoma';font-size:25px;color:#86EE59;font-weight:bold}
+			input{background:#222222;color:#99D6FF;border:solid 1px #bbbbbb;font-family:'trebuchet ms'}
+			input[type="radio"], input[type="checkbox"]{border:none !important;}
+			textarea{background:#222222;color:#99D6FF}
+			iframe{background:#000001;border:solid 1px #bbbbbb}
+			body{background:#000001;color:#99D6FF;font-family:verdana;font-size:16px;text-align:center}
+		</style>
+	</head>
+	<body>
+		<span class="c-title">zzencode_v3.0</span><br />
+		<textarea rows="15" cols="100" id="decoded" name="decoded"></textarea><br />
+		<a href="javascript:void(0);" onclick="zzencodeCall();return false">Encode</a>
+		<span style="color:white;">&nbsp;|&nbsp;</span>
+		<input type="checkbox" id="strict-mode" /><span style="color:#D1FF93;">strict mode</span>
+		<span style="color:white;">&nbsp;|&nbsp;</span>
+		<input type="checkbox" id="clean-up" /><span style="color:#D1FF93;">cleanup</span>
+		<span style="color:white;">&nbsp;|&nbsp;</span>
+		<input type="checkbox" id="with-param" /><span style="color:#D1FF93;">with param</span><br />
+		<span style="color:#D1FF93;">values</span>
+		<input type="text" id="var-values" value="3,14,69,256" />
+		<a href="javascript:void(0);" onclick="calcValuesCall();return false">calc vals -&gt;</a>
+		<input type="text" id="calculated-var-values" /><br />
+		<textarea rows="15" cols="100" id="encoded" name="encoded"></textarea>
+		<div id="introduction">
+			<p>zzencode - v3.0</p>
+			<p>
+				Like jjencode, it encodes javascript into (almost) equivalent code written with only symbols.<br />
+			  This version has a little more randomness, and should be slightly shorter for longer codes.
+			</p>
+			<p>
+				"strict mode" uses an <b>ES6 lambda expression</b> to make the code runnable in strict mode.<br />
+				"cleanup" deletes all variables after running, to prevent pollution of window namespace.<br />
+				"with param" will add a param (shown at end of code) which could be referred to as <b>this</b> in pre-encoded code.
+			</p>
+			<p>
+				"values" field requires 4 different integers &lt; 300, needs to use "calc vals" for these to function.<br />
+				However, do not use "calc vals" when the debugger is open, or it will probably freeze your browser.<br />
+			</p>
+		</div>
+	</body>
+</html>
